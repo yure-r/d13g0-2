@@ -1,0 +1,44 @@
+#data a{
+  font-family: "GT Flexa Var", sans-serif;
+  font-variation-settings: 'wght' 300, 'wdth' 120;
+  
+}
+
+.edityear{
+  font-variation-settings: 'wght' 600, 'wdth' 100;
+  font-size: 20px;
+}
+
+.editnames{
+  text-transform: UPPERCASE;
+  font-family: "Source Code Pro Medium";
+}
+
+.edititle{
+  font-variation-settings: 'wght' 100, 'wdth' 120;
+  text-transform: UPPERCASE;
+}
+
+#data li{
+  margin-bottom: 30px;
+}
+
+#data{
+  margin-top: 30px;
+}
+
+#data span{
+  cursor: pointer;
+}
+
+#data span:hover{
+  color: white;
+  background-color: black;
+}
+
+.desktopEditImg{
+ height: 30px; 
+}
+.mobileEditImg{
+  height: 30px;
+}

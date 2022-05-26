@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:fb="http://ogp.me/ns/fb#"
+      lang="en">
+  
+  <head>
+    <title>Uploading images</title>
+    <meta name="description" content="An image uploader">
+    <link id="favicon" rel="icon" href="https://glitch.com/edit/favicon-app.ico" type="image/x-icon">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="/style.css">
+    <script>
+      window.onload=()=>{
+ 
+        const routes = [
+            {url:'/display',text:'List all file names with mini icons'},
+            {url:'/list',text:'JSON list of all files, ordered by filename'},
+            {url:'/remove',text:'Delete all images'}
+        ]
+
+        let routesListItems = ''
+
+        for(let route of routes ) {
+            routesListItems += `<li><a href="${route.url}">${route.text}</li>`
+        }
+
+        const routesList = `<ul>${routesListItems}</ul>`
+        document.querySelector("nav").insertAdjacentHTML('beforeend', routesList)
+ 
+      }
+    </script>
+  </head>
+  
+  <body>
+    
+    <a href="" onclick="window.close()">back to edit</a>
+
+    <div class="imageContainer">
+      
+    </div>
+    <button class="imgbutton" onclick="document.querySelector('.imageContainer').classList.toggle('closed')">
+      Show/Hide All Images
+    </button>
+    
+    <div class="tooltipcopy">
+      copied relative link!
+    </div>
+    
+    <style>
+      
+      .imgContainerChild{
+    width: 203px;
+    height: 228px;
+    border: 1px solid black;
+    margin: 18px;
+        font-size: 0.8rem;
+
+
+      }
+      
+      .imgContainerChild img{
+            width: 203px!important;
+    height: 228px;
+        object-fit: contain;
+      }
+      
+      .imgParent{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 80vw;
+/*     height: 100vh; */
+      }
+      
+      .tooltipcopy{
+        opacity:0;
+        transition: opacity 0.5s linear;
+        background-color: gray;
+        width: fit-content;
+        height: fit-content;
+        width: -moz-fit-content;
+        height: -moz-fit-content;
+        padding:30px;
+        color: black;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+      }
+      
+      .tooltipDisplay{
+        opacity: 1;
+        transition: opacity 0.5s linear;
+      }
+      
+      .imgbutton{
+        position:fixed;
+        top:0px;
+        right:0px;
+        z-index:999;
+        
+      }
+      
+      .imageContainer{
+        margin-top:40px;
+        width:40vw;
+            overflow-wrap: break-word;
+
+
+      }
+      
+      .closed{
+        max-height:3px;
+        background-color:black;
+        overflow:hidden;
+        max-width:200px;
+      }
+      
+      .copyImgLink{
+        z-index: 999;
+        width: fit-content;
+        height: fit-content;
+        width: -moz-fit-content;
+        height: -moz-fit-content;
+        background-color:black;
+        color: white;
+        padding:5px;
+        margin-top:3px;
+        cursor:pointer;
+      }
+      
+      
+      
+      
+    </style>
+    
+    <script>
+          window.onload=async ()=>{
+ console.log(window.location.origin+"/display")
+            
+fetch(`${window.location.origin}`+`/display`).then(function(response) {
+  console.log(response)
+  return response.text();
+}).then(function(data) {
+  console.log(data);
+  document.querySelector(".imageContainer").innerHTML = data
+}).catch(function(err) {
+  console.log(err);
+});
+            
+ 
+      }
+          
+          
+          // window.addEventListener('DOMContentLoaded', (event) => {
+  
+        document.onclick = function(e){
+        const relX = e.clientX 
+        const relY = e.clientY 
+        const offset = 10
+        const overlapIdMouse = document.elementsFromPoint(relX,relY)[0]
+        // console.log(overlapIdMouse.parentElement)
+        // console.log(overlapIdMouse)
+        if (overlapIdMouse.classList[0]=="copyImgLink"){
+          console.log(overlapIdMouse.parentElement.children[2].innerText)
+          
+            navigator.clipboard.writeText(overlapIdMouse.parentElement.children[2].innerText);
+
+          
+  /* Alert the copied text */
+  console.log("Copied the text: " + overlapIdMouse.parentElement.children[2].innerText);
+          document.querySelector(".tooltipcopy").classList.toggle("tooltipDisplay")
+          setTimeout(() => {
+ document.querySelector(".tooltipcopy").classList.toggle("tooltipDisplay")
+}, "1000")
+
+          
+          
+        }
+        }
+  
+// });
+          
+    </script>
+    
+    <style>
+      .uploadNewFile{
+        position:fixed;
+        top:0px;
+        right:0px;
+        width:30vw;
+        height:100vh;
+      }
+    </style>
+        <div class="uploadNewFile">
+          
+    
+    <h1>Upload a new file</h1>
+    
+     <form id="imageUploader" action="/upload" method="post" enctype="multipart/form-data">
+<!--        <label for="wisher">What is your name?</label> -->
+<!--        <input type="text" name="wisher" id="wisher" /> -->
+  
+<!--        <label for="email">What is your email?</label> -->
+<!--        <input type="text" name="email" id="email" /> -->
+       
+       <label for="image">Upload a file</label>
+       <input type="file" name="image" id="image" />
+       
+       <label for="description">Description--maybe alt text--of the file</label>
+       <textarea name="description" id="description"></textarea>
+
+       <input type="submit" />
+    </form>
+          </div>
+
+    <nav></nav>
+  </body>
+</html>

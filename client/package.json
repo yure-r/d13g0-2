@@ -1,0 +1,17 @@
+{
+  "name": "Rhoda-Lubalin-Fellowship",
+  "version": "0.1.6",
+  "description": "A package for easily storing and retrieving information from a storage project.",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "Richard Yurewitch",
+  "license": "MIT",
+  "dependencies": {
+    "node-fetch": "^2.6.0"
+  },
+  "devDependencies": {
+    "jest": "^25.3.0"
+  }
+}

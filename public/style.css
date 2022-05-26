@@ -1,0 +1,282 @@
+@font-face {
+  font-family: NeueHaas;
+  src: url(./NeueHaasGrotText-65Medium.otf);
+}
+
+body{
+  margin:0px;
+  font-family: NeueHaas, sans-serif;
+  font-size: 1rem;
+  
+}
+
+.copyrightDate{
+  position:fixed;
+  bottom:0px;
+  left:0px;
+  width:calc( 100vw - 40px );
+  padding:20px;
+  background-color:white;
+  border-top: 1px solid black;
+  
+}
+
+.hover-underline-animation {
+  display: inline-block;
+  position: relative;
+  color: #000000;
+}
+
+.hover-underline-animation:after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+/*   margin-top:px; */
+  height: 1px;
+  bottom: 0.5px;
+  left: 0;
+  background-color: #000000;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.hover-underline-animation:hover:after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+.copyrightDate2{
+  position:fixed;
+  bottom:calc(1rem + 40px);
+  left:0px;
+  width: calc(580px);
+  padding:20px;
+  padding-right: calc( 100vw - 580px );
+  background-color:white;
+  border-top: 1px solid black;
+  display: flex;
+    justify-content: space-between;
+  
+}
+
+.copyrightDate2 a{
+  margin-right: 10px;
+}
+
+/* unvisited link */
+.copyrightDate2 a:link {
+  color: black;
+  text-decoration: none;
+}
+
+/* visited link */
+.copyrightDate2 a:visited {
+  color: black;
+  text-decoration: none;
+}
+
+/* mouse over link */
+.copyrightDate2 a:hover {
+  color: black;
+  text-decoration: none;
+}
+
+/* selected link */
+.copyrightDate2 a:active {
+  color: black;
+  text-decoration: none;
+}
+
+.diegoblurb{
+  padding:20px;
+  width: calc(580px);
+  padding-right: calc( 100vw - 580px );
+  
+}
+
+.diegoblurb2{
+  border-top:1px solid black;
+  padding:20px;
+  width: calc(580px);
+  padding-right: calc( 100vw - 580px );
+  
+}
+
+.links {
+padding: 20px;
+    position: fixed;
+    top: 0px;
+    width: 100vw;
+    border-bottom: 1px solid black;
+  background-color: white;
+}
+
+.links a{
+  margin-right: 100px;
+}
+
+.lasta {
+  margin-right: 10px!important;
+}
+
+/* unvisited link */
+.links a:link {
+  color: black;
+  text-decoration: none;
+}
+
+/* visited link */
+.links a:visited {
+  color: black;
+  text-decoration: none;
+}
+
+/* mouse over link */
+.links a:hover {
+  color: black;
+  text-decoration: none;
+}
+
+/* selected link */
+.links a:active {
+  color: black;
+  text-decoration: none;
+}
+
+u {
+/*   padding-bottom:10px; */
+  text-decoration:none;
+  border-bottom:1px solid #000;
+  margin-top:-2px;
+}
+
+.margin {
+    margin-top: calc(42px + 1rem);
+}
+
+
+
+.projectHeroImg{
+  width: 80%;
+/*   height: 70vh; */
+  height:auto;
+  max-height:70vh;
+  object-fit:contain;
+}
+
+.mobileHeroImg{
+    width: 80%;
+/*   height: 70vh; */
+  height:auto;
+  max-height:70vh;
+  object-fit:contain;
+}
+
+.desktopImage{
+  max-width:100vw;
+  width:100vw;
+  object-fit:contain;
+  max-height:70vh;
+  border-bottom:1px solid black;
+      margin: auto;
+}
+
+.mobileImage{
+  max-width:100vw;
+  max-height:70vh;
+  display:none;
+  border-bottom:1px solid black;
+  
+}
+
+.project{
+      display: flex;
+    justify-content: space-between;
+  padding:20px;
+}
+
+.projectParent{
+  border-top: 1px solid black;
+}
+
+.desktopImageWebsite{
+  max-width:100vw;
+  max-height:unset;
+  width:100vw;
+  height:auto;
+}
+
+.projectLast{
+  margin-bottom: calc(1rem + 45px);
+}
+
+@media only screen and (max-width: 1200px) {
+  
+/*     .diegoblurb{
+  padding:20px;
+  width: calc(50vw - 20px);
+  padding-right: 50vw;
+  
+} */
+  
+}
+
+@media only screen and (max-width: 600px) {
+  
+  body{
+    font-size:1rem;
+  }
+  
+  .mobileImage{
+    display: block;
+/*     object-fit:cover; */
+    border-bottom:1px solid black;
+        margin: auto;
+        max-width: 100vw;
+    width: 100vw;
+    object-fit: contain!important;
+    max-height: 70vh;
+  }
+  
+  .diegoblurb{
+  padding:20px;
+  width: calc(100vw - 40px);
+  padding-right: 20px;
+  
+}
+  
+    .diegoblurb2{
+  padding:20px;
+  width: calc(100vw - 40px);
+  padding-right: 20px;
+  
+}
+  
+  .copyrightDate2{
+  position:fixed;
+  bottom:calc(1rem + 40px);
+  left:0px;
+  width:calc( 100vw - 40px );
+  padding:20px;
+  background-color:white;
+  border-top: 1px solid black;
+  
+}
+  
+  .infoLink {
+    width: fit-content;
+    width: -moz-fit-content;
+  }
+  
+  .desktopImage{
+    display:none;
+  }
+  
+  .projectLast{
+  margin-bottom: calc(1rem + 45px);
+}
+  
+}
+
+
